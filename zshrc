@@ -151,12 +151,10 @@ export EDITOR='nano'
 #
 
 alias wp="feh --bg-fill --randomize wallpapers"
-alias rpc="fetchcord --nodistro --nohost --nohardware --terminal kitty"
 alias config="nano ~/.zshrc"
 alias ls='exa --group-directories-first --icons -GaF'
 alias history="history 0"
 alias x='exit'
 alias cls='clear'
 alias cat='bat'
-alias summer='./Games/Summertime-Saga/SummertimeSaga.sh'
 alias pb='picom -b'
