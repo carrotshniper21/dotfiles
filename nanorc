@@ -1,0 +1,19 @@
+# SYNTAX HIGHLIGHTING #
+include "/usr/share/nano/*.nanorc"
+
+# PREFRENCES #
+set tabsize 4
+set tabstospaces
+set multibuffer
+set softwrap
+set nohelp
+
+# COLORS #
+set titlecolor brightwhite,black
+set keycolor brightwhite,black
+set functioncolor normal,normal
+set numbercolor brightwhite,black
+set errorcolor brightwhite,red
+set selectedcolor black,white
+set stripecolor black,white
+set statuscolor black,white
