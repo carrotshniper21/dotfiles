@@ -163,3 +163,7 @@ lspconfig.gopls.setup{on_attach = on_attach, capabilities = capabilities}
 -- python
 lspconfig.pyright.setup{on_attach = on_attach, capabilities = capabilities}
 -- python
+
+-- bash
+lspconfig.shellcheck.setup{on_attach = on_attach, capabilities = capabilities}
+-- bash
