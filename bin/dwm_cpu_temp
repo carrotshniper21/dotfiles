@@ -1,0 +1,4 @@
+#!/bin/bash
+
+icon=""
+printf "$icon c^#f7ca88^1^c#d75f5f^°C^d^"
