@@ -30,8 +30,6 @@ export ZSH=~/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="agnoster"
 
-ZSH_THEME="dracula"
-
 # Uncooment the following line to autoupdate without prompt
 # DISABLE_UPDATE_PROMPT="true"
 
@@ -103,12 +101,11 @@ export EDITOR='nvim'
 # For a full list of active aliases, run `alias`.
 #
 
-alias wp="feh --bg-fill --randomize $HOME/wallpapers"
+alias wp="feh --bg-fill --randomize $HOME/.backgrounds"
 alias config="nvim $HOME/.zshrc"
 alias ls='exa --group-directories-first --icons -GaF'
-alias venv='python -m venv venv && source venv/bin/activate'
-alias reqs='pip install -r requirements.txt'
-alias gp='git pull'
+alias gpl='git pull'
+alias gpu='git push'
 alias gb='go build'
 alias gc='git commit'
 alias gt='go mod tidy'
@@ -118,14 +115,8 @@ alias src='source $HOME/.zshrc'
 alias cls='clear'
 alias cat='bat'
 alias pb='picom -b'
-alias vconfig='nvim $HOME/.config/nvim/init.vim'
-alias dconfig='nvim $HOME/dwm/config.h'
-alias network='sudo systemctl restart NetworkManager'
 alias tree='exa --tree --icons'
-alias chat='python -m revChatGPT.V1'
 alias orphans='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rs $(pacman -Qdtq) || echo "no orphans to remove"'
-alias pipebomb='ssh root@pipebomb.bytecats.codes'
 alias nvim='lvim'
-alias gd='godoc'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

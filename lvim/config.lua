@@ -3,14 +3,94 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 lvim.plugins = {
-	{ "ellisonleao/gruvbox.nvim" },
+  { "ellisonleao/gruvbox.nvim" },
   { "mg979/vim-visual-multi" },
   { "rose-pine/neovim" },
-  { "norcalli/nvim-colorizer.lua",
+  {
+    "norcalli/nvim-colorizer.lua",
     config = function()
-    require("colorizer").setup()
+      require("colorizer").setup()
     end,
   },
-  { "rebelot/kanagawa.nvim" }
+  { 'rose-pine/neovim' },
+  { "rebelot/kanagawa.nvim" },
+  {
+    "simrat39/inlay-hints.nvim",
+    config = function()
+      require("inlay-hints").setup()
+    end,
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    config = function()
+      require("vscode").setup()
+    end,
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    config = function()
+      require("oxocarbon")
+    end
+  },
+  {
+
+    "simrat39/rust-tools.nvim",
+    -- events = { "VeryLazy" },
+    dependencies = "neovim/nvim-lspconfig",
+    config = function()
+      local ih = require("inlay-hints")
+      local rust_tools = require("rust-tools")
+      rust_tools.setup({
+        tools = {
+          on_initialized = function()
+            ih.set_all()
+          end,
+          runnables = {
+            use_telescope = true,
+          },
+          hover_actions = {
+            max_height = function()
+              return math.floor(vim.o.lines * 0.75)
+            end,
+            max_width = function()
+              return math.floor(vim.o.columns * 0.75)
+            end,
+            auto_focus = true,
+          },
+          inlay_hints = {
+            auto = false
+          }
+        },
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              -- enable clippy on save
+              checkOnSave = {
+                command = "cargo",
+              },
+            },
+          },
+          on_attach = function(c, b)
+            ih.on_attach(c, b)
+          end,
+        },
+      })
+    end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
+    "andweeb/presence.nvim",
+    config = function()
+      require("presence").setup()
+    end,
+  }
+
+
 }
-lvim.colorscheme = "kanagawa-dragon"
+
+lvim.colorscheme = "oxocarbon"

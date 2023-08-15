@@ -4,16 +4,16 @@
 #include "movestack.h"
 
 /* appearance */
-static const unsigned int borderpx = 1;
+static const unsigned int borderpx = 3;
 static const unsigned int gappx = 5;	/* default gap size between windows */
 static const unsigned int snap = 32;	/* snap pixel */
-static const int showbar = 1;	/* 0 means no bar */
-static const int topbar = 0;	/* 0 means bottom bar */
+static const int showbar = 0;	/* 0 means no bar */
+static const int topbar = 1;	/* 0 means bottom bar */
 static const int vertpad = 5;	/* vertical padding of bar */
 static const int sidepad = 5;	/* horizontal padding of bar */
 static const Bool viewontag = True;	/* Switch view on tag switch */
 static const int focusonwheel = 0;
-static const char *fonts[] = { "RobotoMono Nerd Font:size=16" };
+static const char *fonts[] = { "RobotoMono Nerd Font:size=18" };
 
 static const char col_soft_black[] = "#212121";
 static const char col_gray[] = "#616161";
@@ -34,7 +34,7 @@ static const char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1): WM_CLASS(STRING) = instance, class WM_NAME(STRING) = title */
@@ -67,21 +67,17 @@ static const Layout layouts[] = {
 
 #define PrintScreenDWM	    0x0000ff61
 
-static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
+static const char *roficmd [] = { "rofi", "-show", "drun", NULL };
 static const char *flamecmd[] = { "flameshot", "gui", NULL };
-static const char *termcmd[] = { "kitty", NULL };
-static const char *powercmd[] = { "powermenu", NULL };
-static const char *quickcmd[] = { "quicklinks", NULL };
-static const char *volcmd[] = { "volume", NULL };
+static const char *termcmd[] = { "wezterm", NULL };
+static const char *wincmd[] = { "skippy-xd", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = flamecmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = powercmd } },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = quickcmd } },
-	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volcmd } },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wincmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
