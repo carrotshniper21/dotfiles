@@ -44,6 +44,7 @@ case "$1" in
       cp -r terminal/neofetch $HOME/.config
       cp -r terminal/ranger $HOME/.config
       cp -r terminal/wezterm $HOME/.config
+      cp fzf.zsh $HOME/.fzf.zsh
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
       cp terminal/zshrc $HOME/.zshrc
