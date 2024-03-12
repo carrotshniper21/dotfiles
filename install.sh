@@ -2,8 +2,6 @@
 
 pre_install() {
     pacman -S git --needed base-devel --noconfirm || exit
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
-    rustup default stable
 }
 
 post_install() {
