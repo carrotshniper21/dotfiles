@@ -2,13 +2,15 @@
 
 pre_install() {
     pacman -S git --needed base-devel --noconfirm || exit
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
+    pacman -S rustup --noconfirm
 }
 
 post_install() {
     git clone https://aur.archlinux.org/yay.git || exit
     cd yay || exit
     makepkg -si --noconfirm || exit
-    yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd nautilus fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig --noconfirm || exit
+    yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd nautilus fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig nodejs npm python-pip --noconfirm  || exit
     cd .. && rm -rf yay || exit
 
     git clone https://github.com/fdev31/picom || exit
