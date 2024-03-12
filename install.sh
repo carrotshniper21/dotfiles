@@ -25,10 +25,13 @@ case "$1" in
       chsh $USER -s /bin/zsh
       rm $HOME/.bash*
       
-      echo "(1/6) Configuring backgrounds"
+      echo "(1/7) Configuring backgrounds"
       cp -r backgrounds $HOME/.backgrounds
+
+      echo "(2/7) Installing lunarvim"
+      bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
       
-      echo "(2/6) Copying configuration files (picom, mpv, cava, neofetch, ranger, wezterm, rofi, skippy-xd)"
+      echo "(3/7) Copying configuration files (picom, mpv, cava, neofetch, ranger, wezterm, rofi, skippy-xd)"
       cp config/picom.conf $HOME/.config
       cp -r config/mpv $HOME/.config
       cp -r config/cava $HOME/.config
@@ -36,20 +39,21 @@ case "$1" in
       cp -r config/ranger $HOME/.config
       cp -r config/wezterm $HOME/.config
       cp -r config/rofi $HOME/.config
+      cp -r config/lvim $HOME/.config
       cp -r config/skippy-xd $HOME/.config
 
-      echo "(3/6) Copying desktop configuration files"
+      echo "(4/7) Copying desktop configuration files"
       cp desktop/xsession $HOME/.xsession
       sudo cp desktop/dwm.desktop /usr/share/xsessions || exit
       
-      echo "(4/6) Building (dwm, dwmblocks)"
+      echo "(5/7) Building (dwm, dwmblocks)"
       sudo make clean install -C desktop/dwm || exit
       sudo make clean install -C desktop/dwmblocks || exit
 
-      echo "(5/6) Moving dwmblocks binaries to /usr/bin"
+      echo "(6/7) Moving dwmblocks binaries to /usr/bin"
       sudo cp bin/* /usr/bin || exit 
       
-      echo "(6/6) Configuring terminal (fzf, zsh)"
+      echo "(7/7) Configuring terminal (fzf, zsh)"
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
       cp terminal/fzf.zsh $HOME/.fzf.zsh
