@@ -1,9 +1,5 @@
 #!/bin/bash
 
-configure_dotfiles() {
-  
-}
-
 case "$1" in
   --pre)
       pacman -S git --needed base-devel --noconfirm
