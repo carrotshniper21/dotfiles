@@ -10,7 +10,7 @@ post_install() {
     git clone https://aur.archlinux.org/yay.git || exit
     cd yay || exit
     makepkg -si --noconfirm || exit
-    yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd nautilus fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig nodejs npm python-pip --noconfirm  || exit
+    yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd nautilus fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig nodejs npm python-pip --noconfirm || exit
     cd .. && rm -rf yay || exit
 
     git clone https://github.com/fdev31/picom || exit
@@ -51,7 +51,8 @@ configure_dots() {
     echo "(7/7) Configuring terminal..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
-    cp shell/* $HOME/ || exit
+    cp shell/fzf.zsh $HOME/.fzf.zsh || exit
+    cp shell/zshrc $HOME/.zshrc || exit
     echo "DONE!"
 }
 
