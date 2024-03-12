@@ -10,7 +10,7 @@ post_install() {
     git clone https://aur.archlinux.org/yay.git || exit
     cd yay || exit
     makepkg -si --noconfirm || exit
-    yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd nautilus fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig nodejs npm python-pip --noconfirm || exit
+    yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd nautilus fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig nodejs npm python-pip libsixel --noconfirm || exit
     cd .. && rm -rf yay || exit
 
     git clone https://github.com/fdev31/picom || exit
