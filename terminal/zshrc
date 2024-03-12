@@ -104,19 +104,11 @@ export EDITOR='nvim'
 alias wp="feh --bg-fill --randomize $HOME/.backgrounds"
 alias config="nvim $HOME/.zshrc"
 alias ls='exa --group-directories-first --icons -GaF'
-alias gpl='git pull'
-alias gpu='git push'
-alias gb='go build'
-alias gc='git commit'
-alias gt='go mod tidy'
-alias ga='git add .'
 alias x='exit'
 alias src='source $HOME/.zshrc'
 alias cls='clear'
 alias cat='bat'
 alias pb='picom -b'
 alias tree='exa --tree --icons'
-alias orphans='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rs $(pacman -Qdtq) || echo "no orphans to remove"'
-alias nvim='lvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
