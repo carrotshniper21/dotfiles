@@ -33,8 +33,8 @@ case "$1" in
       sudo cp desktop/dwm.desktop /usr/share/xsessions || exit
       cp -r desktop/skippy-xd $HOME/.config
       echo "Building (dwm, dwmblocks)"
-      sudo make -C desktop/dwm || exit
-      sudo make -C desktop/dwmblocks || exit
+      sudo make clean install -C desktop/dwm || exit
+      sudo make clean install -C desktop/dwmblocks || exit
       echo "Media configuration (mpv, cava)"
       cp -r media/mpv $HOME/.config
       cp -r media/music/cava $HOME/.config
