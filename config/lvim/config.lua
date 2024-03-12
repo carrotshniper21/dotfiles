@@ -93,4 +93,4 @@ lvim.plugins = {
 
 }
 
-lvim.colorscheme = "oxocarbon"
+lvim.colorscheme = "gruvbox"
