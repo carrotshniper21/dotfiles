@@ -48,6 +48,8 @@ configure_dots() {
 
     echo "(7/7) Configuring terminal..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    mkdir -p ~/.config/fzf/shell
+    wget -P ~/.config/fzf/shell/ https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh 
     rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
     cp shell/fzf.zsh $HOME/.fzf.zsh || exit
     cp shell/zshrc $HOME/.zshrc || exit
