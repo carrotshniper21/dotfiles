@@ -49,7 +49,7 @@ configure_dots() {
     sudo cp bin/* /usr/bin || exit
 
     echo "(7/7) Configuring terminal..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
     cp shell/fzf.zsh $HOME/.fzf.zsh || exit
     cp shell/zshrc $HOME/.zshrc || exit
