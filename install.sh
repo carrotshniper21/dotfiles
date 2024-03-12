@@ -28,27 +28,27 @@ configure_dots() {
     chsh $USER -s /bin/zsh
     rm $HOME/.bash*
 
-    echo "Configuring backgrounds..."
+    echo "(1/7) Configuring backgrounds..."
     cp -r backgrounds $HOME/.backgrounds
 
-    echo "Installing lunarvim..."
+    echo "(2/7) Installing lunarvim..."
     bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 
-    echo "Copying configuration files..."
+    echo "(3/7) Copying configuration files..."
     cp -r config/* $HOME/.config || exit
 
-    echo "Copying desktop configuration files..."
+    echo "(4/7) Copying desktop configuration files..."
     cp desktop/xsession $HOME/.xsession
     sudo cp desktop/dwm.desktop /usr/share/xsessions || exit
 
-    echo "Building dwm and dwmblocks..."
+    echo "(5/7) Building dwm and dwmblocks..."
     sudo make clean install -C desktop/dwm || exit
     sudo make clean install -C desktop/dwmblocks || exit
 
-    echo "Moving dwmblocks binaries to /usr/bin..."
+    echo "(6/7) Moving dwmblocks binaries to /usr/bin..."
     sudo cp bin/* /usr/bin || exit
 
-    echo "Configuring terminal..."
+    echo "(7/7) Configuring terminal..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
     cp shell/* $HOME/ || exit
