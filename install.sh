@@ -49,7 +49,7 @@ configure_dots() {
     echo "Configuring terminal..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     rm $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
-    cp terminal/* $HOME/ || exit
+    cp shell/* $HOME/ || exit
     echo "DONE!"
 }
 
