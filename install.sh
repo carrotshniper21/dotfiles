@@ -3,6 +3,10 @@
 configure_dots() {
     sudo pacman -S git --needed base-devel --noconfirm || exit
 
+    if [ -d ./yay ]; then
+      rm -rf yay
+    fi
+
     git clone https://aur.archlinux.org/yay.git || exit
     cd yay || exit
     makepkg -si --noconfirm || exit
@@ -10,14 +14,16 @@ configure_dots() {
     yay -S neofetch skippy-xd cava ranger mpv rofi wezterm zsh feh xorg-xrandr neovim flameshot notify-osd discord chromium xclip pavucontrol ttf-roboto-mono-nerd thunar lxappearance fzf networkmanager exa bat github-cli zsh-autosuggestions zsh-syntax-highlighting meson ninja uthash libconfig nodejs npm python-pip libsixel imagemagick qt5-quickcontrols2-git qt5-graphicaleffects-git qt5-svg-git --noconfirm || exit
 
     if [ -e /etc/systemd/system/display-manager.service ]; then 
-        default_target=$(basename $(readlink -f /etc/systemd/system/display-manager.service))
-        login_manager=${default_target%-*}
-        sudo systemctl disable $login_manager || exit
-        yay -S sddm --noconfirm || exit
-        sudo systemctl enable sddm.service || exit
-    else
-      yay -S sddm --noconfirm || exit
-      sudo systemctl enable sddm.service || exit
+      default_target=$(basename $(readlink -f /etc/systemd/system/display-manager.service))
+      login_manager=${default_target%-*}
+      sudo systemctl disable $login_manager || exit
+    fi
+
+    yay -S sddm --noconfirm || exit
+    sudo systemctl enable sddm.service || exit
+
+    if [ -d ./picom ]; then 
+      rm -rf picom
     fi
 
     git clone https://github.com/fdev31/picom || exit
@@ -29,10 +35,9 @@ configure_dots() {
 
     if [ -d ./dotfiles ]; then 
       rm -rf ./dotfiles
-      git clone https://github.com/carrotshniper21/dotfiles || exit
-    else
-      git clone https://github.com/carrotshniper21/dotfiles || exit
     fi
+
+    git clone https://github.com/carrotshniper21/dotfiles || exit
 
     cd dotfiles
 
@@ -59,10 +64,9 @@ configure_dots() {
     echo "(4/8) Installing GTK-3 theme..."
     if [ -d $HOME/.themes ]; then 
       rm -rf $HOME/.themes
-      git clone https://github.com/jmattheis/gruvbox-dark-gtk $HOME/.themes/gruvbox-dark-gtk || exit
-    else 
-      git clone https://github.com/jmattheis/gruvbox-dark-gtk $HOME/.themes/gruvbox-dark-gtk || exit
     fi
+
+    git clone https://github.com/jmattheis/gruvbox-dark-gtk $HOME/.themes/gruvbox-dark-gtk || exit
 
     echo "(5/8) Copying desktop configuration files..."
     cp desktop/xsession $HOME/.xsession
