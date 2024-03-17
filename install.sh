@@ -1,7 +1,7 @@
 #!/bin/bash
 
 configure_dots() {
-    pacman -S git --needed base-devel --noconfirm || exit
+    sudo pacman -S git --needed base-devel --noconfirm || exit
 
     git clone https://aur.archlinux.org/yay.git || exit
     cd yay || exit
