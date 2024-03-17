@@ -80,10 +80,14 @@ configure_dots() {
     echo "(7/8) Moving dwmblocks binaries to /usr/bin..."
     sudo cp bin/* /usr/bin || exit
 
-    echo "(8/8) Configuring terminal..."
+    echo "(8/9) Configuring terminal..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     rm $HOME/.zshrc
     cp shell/zshrc $HOME/.zshrc || exit
+
+    echo "(9/9) Deleting dotfiles directory"
+    cd .. && rm -rf dotfiles
+
     echo "DONE!"
 }
 
