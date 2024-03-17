@@ -46,15 +46,19 @@ configure_dots() {
     cp -r backgrounds $HOME/.backgrounds
 
     echo "(2/8) Installing lunarvim..."
+    if [ -d $HOME/.local ]; then
+      sudo rm -rf $HOME/.local
+    fi
+
     bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-    sudo cp .local/bin/lvim /usr/bin || exit
+    sudo cp $HOME/.local/bin/lvim /usr/bin || exit
 
     echo "(3/8) Copying configuration files..."
     cp -r config/* $HOME/.config || exit
 
     echo "(4/8) Installing GTK-3 theme..."
     if [ -d $HOME/.themes ]; then 
-      rm -rf .themes
+      rm -rf $HOME/.themes
       git clone https://github.com/jmattheis/gruvbox-dark-gtk $HOME/.themes/gruvbox-dark-gtk || exit
     else 
       git clone https://github.com/jmattheis/gruvbox-dark-gtk $HOME/.themes/gruvbox-dark-gtk || exit
