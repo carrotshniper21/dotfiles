@@ -3,34 +3,20 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 lvim.plugins = {
-  { "ellisonleao/gruvbox.nvim" },
+  { "github/copilot.vim"},
+  { "blazkowolf/gruber-darker.nvim" },
   { "mg979/vim-visual-multi" },
-  { "rose-pine/neovim" },
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup()
     end,
   },
-  { 'rose-pine/neovim' },
-  { "rebelot/kanagawa.nvim" },
   {
     "simrat39/inlay-hints.nvim",
     config = function()
       require("inlay-hints").setup()
     end,
-  },
-  {
-    "Mofiqul/vscode.nvim",
-    config = function()
-      require("vscode").setup()
-    end,
-  },
-  {
-    "nyoom-engineering/oxocarbon.nvim",
-    config = function()
-      require("oxocarbon")
-    end
   },
   {
 
@@ -93,4 +79,5 @@ lvim.plugins = {
 
 }
 
-lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "gruber-darker"
+lvim.transparent_window = false;
